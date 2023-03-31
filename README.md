@@ -1,43 +1,11 @@
-# three-js-webpack
+# 🎲 three.js practice
+three.js 실습하며 입문하기!
+## Step 0) Setting three-js-webpack
+- [실습 코드 링크](https://github.com/ynawhocodes/threejs/tree/dev)
+- 결과물  
 
-Starter project for Three.JS. Configured with Webpack 4 as a bundler.
+![step00](https://user-images.githubusercontent.com/48620082/229087155-18f61d6c-3f01-4af4-a5ce-76c6fa62c13e.gif)
 
-Great and easy way to bootstrap your Three.JS project.
+## Step 1) 
 
-## Development
-
-Clone the project and install dependencies:
-
-```bash
-git clone https://github.com/aakatev/three-js-webpack.git
-npm i
-```
-
-Start webpack development server:
-
-```bash
-npm run start
-```
-
-Webpack configuration is located in [`webpack.config.js`](webpack.config.js).
-
-## Deployment on GitHub Pages
-
-**Works with any other static website hosting too.**
-
-Bundle your code, and push it in your repo:
-
-```bash
-npm run build
-git add
-git commit -m"Deploying on GitHub Pages"
-git push
-```
-
-## Extra
-
-The code can be formated with prettier:
-
-```bash
-npm run format
-```
+- [실습 코드 링크](https://github.com/ynawhocodes/threejs/tree/step01)
