@@ -33,7 +33,6 @@ if (WEBGL.isWebGLAvailable()) {
     scene.add(cube03);
     cube03.position.x = +1;
 
-
     function render(time) {
         time *= 0.0005; // convert time to seconds
 
@@ -48,6 +47,14 @@ if (WEBGL.isWebGLAvailable()) {
         requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
+
+    // resize
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    window.addEventListener('resize', onWindowResize);
 } else {
     var warning = WEBGL.getWebGLErrorMessage();
     document.body.appendChild(warning);
