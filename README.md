@@ -1,43 +1,56 @@
-# three-js-webpack
-
-Starter project for Three.JS. Configured with Webpack 4 as a bundler.
-
-Great and easy way to bootstrap your Three.JS project.
-
-## Development
-
-Clone the project and install dependencies:
-
-```bash
-git clone https://github.com/aakatev/three-js-webpack.git
-npm i
+# three.js
+## Step 01) 3D 도형 추가하기
+![step01](https://user-images.githubusercontent.com/48620082/231376759-f20f2661-bb5a-4540-8329-9cdb7d13f32a.gif)
+- 3D 도형 회전하며 렌더하기
+- 반응형 적용하기
+### code
+- scene
+```js
+   const scene = new THREE.Scene();
+   scene.background = new THREE.Color(0xffffff);
 ```
-
-Start webpack development server:
-
-```bash
-npm run start
+- camera
+```js
+   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+   camera.position.z = 2;
 ```
-
-Webpack configuration is located in [`webpack.config.js`](webpack.config.js).
-
-## Deployment on GitHub Pages
-
-**Works with any other static website hosting too.**
-
-Bundle your code, and push it in your repo:
-
-```bash
-npm run build
-git add
-git commit -m"Deploying on GitHub Pages"
-git push
+- mesh
+```js
+   const geometry01 = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+   const material01 = new THREE.MeshStandardMaterial({ color: 0xff6200 });
+   const cube01 = new THREE.Mesh(geometry01, material01);
+   cube01.position.x = -1;
+   scene.add(cube01);
 ```
+- render
+```js
+function render(time) {
+    time *= 0.0005;
 
-## Extra
+    cube01.rotation.x = time;
+    cube01.rotation.y = time;
+    cube02.rotation.x = time;
+    cube02.rotation.y = time;
+    cube03.rotation.x = time;
+    cube03.rotation.y = time;
+    renderer.render(scene, camera);
 
-The code can be formated with prettier:
-
-```bash
-npm run format
+    requestAnimationFrame(render);
+   }
+requestAnimationFrame(render);
+```
+- 반응형
+```js
+ function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+ }
+ window.addEventListener('resize', onWindowResize);
+```
+### Start
+```
+  git clone https://github.com/ynawhocodes/threejs.git
+  git checkout step01
+  npm start
 ```
