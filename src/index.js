@@ -20,6 +20,10 @@ if (WEBGL.isWebGLAvailable()) {
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
+    // light
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(0, 2, 12);
+    scene.add(pointLight);
     // mesh 01
     const geometry = new THREE.TorusGeometry(0.3, 0.15, 16, 40);
     const material01 = new THREE.MeshBasicMaterial({ color: 0xff6200 });
@@ -27,7 +31,7 @@ if (WEBGL.isWebGLAvailable()) {
     cube01.position.x = -2;
     scene.add(cube01);
     // mesh 02
-    const material02 = new THREE.MeshBasicMaterial({ color: 0xff6200 });
+    const material02 = new THREE.MeshStandardMaterial({ color: 0xff6200, metalness: 0.5, roughness: 0.5, transparent: true, opacity: 0.5 });
     const cube02 = new THREE.Mesh(geometry, material02);
     cube02.position.x = -1;
     scene.add(cube02);
