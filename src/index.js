@@ -53,13 +53,11 @@ if (WEBGL.isWebGLAvailable()) {
 
     function render(time) {
         time *= 0.0005; // convert time to seconds
-
-        cube01.rotation.x = time;
         cube01.rotation.y = time;
-        cube02.rotation.x = time;
         cube02.rotation.y = time;
-        cube03.rotation.x = time;
         cube03.rotation.y = time;
+        cube04.rotation.y = time;
+        cube05.rotation.y = time;
         renderer.render(scene, camera);
 
         requestAnimationFrame(render);
