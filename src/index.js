@@ -36,17 +36,17 @@ if (WEBGL.isWebGLAvailable()) {
     cube02.position.x = -1;
     scene.add(cube02);
     // mesh 03
-    const material03 = new THREE.MeshBasicMaterial({ color: 0xff6200 });
+    const material03 = new THREE.MeshPhysicalMaterial({ color: 0xff6200, clearcoat: 1, clearcoatRoughness: 0.3 });
     const cube03 = new THREE.Mesh(geometry, material03);
     scene.add(cube03);
     cube03.position.x = 0;
     // mesh 04
-    const material04 = new THREE.MeshBasicMaterial({ color: 0xff6200 });
+    const material04 = new THREE.MeshLambertMaterial({ color: 0xff6200 });
     const cube04 = new THREE.Mesh(geometry, material04);
     scene.add(cube04);
     cube04.position.x = +1;
     // mesh 05
-    const material05 = new THREE.MeshBasicMaterial({ color: 0xff6200 });
+    const material05 = new THREE.MeshPhongMaterial({ color: 0xff6200, shininess: 60, specular: 0x004ff });
     const cube05 = new THREE.Mesh(geometry, material05);
     scene.add(cube05);
     cube05.position.x = +2;
